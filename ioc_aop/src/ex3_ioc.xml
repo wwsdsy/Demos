@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="CnHelloGenerator" class="com.ctrip.ttd.demos.demo_ioc.ex3.CnHelloGenerator" />
+	<bean id="EnHelloGenerator" class="com.ctrip.ttd.demos.demo_ioc.ex3.EnHelloGenerator" />
+
+	<bean id="SayHello" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello">
+		<constructor-arg name="helloGenerator" ref="CnHelloGenerator" />
+	</bean>
+	<bean id="SayHello2" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello">
+		<constructor-arg name="helloGenerator" ref="EnHelloGenerator" />
+	</bean>
+	<bean id="SayHello3" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello">
+		<constructor-arg name="helloGenerator" ref="EnHelloGenerator" />
+	</bean>
+	<bean id="SayHello4" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello">
+		<constructor-arg name="helloGenerator" ref="EnHelloGenerator" />
+	</bean>
+
+	<bean id="testAspect" class="com.ctrip.ttd.demos.demo_ioc.ex3.TestAspect" />
+	<bean id="beforeAdvice" class="com.ctrip.ttd.demos.demo_ioc.ex3.beforeAdvice" />
+	<bean id="afterAdvice" class="com.ctrip.ttd.demos.demo_ioc.ex3.AfterAdvice"></bean>
+	<bean id="compareInterceptor" class="com.ctrip.ttd.demos.demo_ioc.ex3.CompareInterceptor"></bean>
+
+	<bean id="adviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.ctrip.ttd.demos.demo_ioc.ex3.ISayHello</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>beforeAdvice</value>
+				<value>afterAdvice</value>
+				<value>compareInterceptor</value>
+			</list>
+		</property>
+		<property name="target" ref="SayHello3" />
+	</bean>
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+</beans>
