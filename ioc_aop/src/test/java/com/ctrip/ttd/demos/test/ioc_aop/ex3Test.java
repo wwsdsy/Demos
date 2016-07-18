@@ -33,7 +33,7 @@ public class ex3Test {
 	
 	@Test
 	public void test3() {
-		ISayHello _sayHello = (ISayHello) _context.getBean("SayHello3");
+		ISayHello _sayHello = (ISayHello) _context.getBean("adviceProxy");
 		assertEquals("Hello , qian.x", _sayHello.SayHelloTo("qian.x"));
 		_context.close();
 	}

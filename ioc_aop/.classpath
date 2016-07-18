@@ -23,11 +23,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="D:/spring-framework-4.3.1.RELEASE/libs/spring-aop-4.3.1.RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/spring-framework-4.3.1.RELEASE/libs/spring-aspects-4.3.1.RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/spring-framework-4.3.1.RELEASE/libs/spring-beans-4.3.1.RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/spring-framework-4.3.1.RELEASE/libs/spring-context-4.3.1.RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/spring-framework-4.3.1.RELEASE/libs/spring-core-4.3.1.RELEASE.jar"/>
-	<classpathentry kind="lib" path="D:/spring-framework-4.3.1.RELEASE/libs/spring-expression-4.3.1.RELEASE.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

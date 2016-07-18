@@ -28,9 +28,7 @@
 	<bean id="compareInterceptor" class="com.ctrip.ttd.demos.demo_ioc.ex3.CompareInterceptor"></bean>
 
 	<bean id="adviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="proxyInterfaces">
-			<value>com.ctrip.ttd.demos.demo_ioc.ex3.ISayHello</value>
-		</property>
+		<property name="proxyInterfaces" value="com.ctrip.ttd.demos.demo_ioc.ex3.ISayHello" />
 		<property name="interceptorNames">
 			<list>
 				<value>beforeAdvice</value>
@@ -38,7 +36,9 @@
 				<value>compareInterceptor</value>
 			</list>
 		</property>
-		<property name="target" ref="SayHello3" />
+		<property name="target">
+			<ref bean="SayHello3" />
+		</property>
 	</bean>
 
 	<aop:aspectj-autoproxy proxy-target-class="true" />
