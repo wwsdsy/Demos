@@ -9,7 +9,7 @@
 	<bean id="CnHelloGenerator" class="com.ctrip.ttd.demos.demo_ioc.ex3.CnHelloGenerator" />
 	<bean id="EnHelloGenerator" class="com.ctrip.ttd.demos.demo_ioc.ex3.EnHelloGenerator" />
 
-	<bean id="SayHello" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello">
+	<bean id="SayHello" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello" scope="prototype">
 		<constructor-arg name="helloGenerator" ref="CnHelloGenerator" />
 	</bean>
 	<bean id="SayHello2" class="com.ctrip.ttd.demos.demo_ioc.ex3.SayHello">
@@ -41,5 +41,5 @@
 		</property>
 	</bean>
 
-	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
 </beans>
